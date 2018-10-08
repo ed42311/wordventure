@@ -30,13 +30,12 @@ router.get( '/', function ( req, res ) {
 } )
 
 //routes for API
-//story route
+//import story route
 const storyRoutes = require( './routes/stories.js' )
 storyRoutes( router )
+//import scene route
 const sceneRoutes = require( './routes/scenes.js' )
 sceneRoutes( router )
-// const optionRoutes = require( './routes/options.js' )
-// optionRoutes( router )
 //end of middleware
 app.use( '/api', router )
 //listen to port

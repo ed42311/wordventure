@@ -1,7 +1,8 @@
+//importing story and scene models
 const Story = require( '../models/story' ).story;
 const Scene = require( '../models/story' ).scene;
 module.exports = function ( router ) {
-
+	//route to stories
 	router
 		.route( '/stories' )
 		//create a Story
@@ -17,6 +18,7 @@ module.exports = function ( router ) {
 			} )
 
 		} )
+		//get all stories
 		.get( function ( req, res ) {
 			Story.find( function ( err, stories ) {
 				if ( err ) 
@@ -24,8 +26,10 @@ module.exports = function ( router ) {
 				res.json( stories )
 			} )
 		} )
+	//route to specific stories
 	router
 		.route( '/stories/:story_id' )
+		//get specific story
 		.get( function ( req, res ) {
 			Story.findById( req.params.story_id, function ( err, story ) {
 				if ( err ) 
@@ -33,12 +37,13 @@ module.exports = function ( router ) {
 				res.json( story )
 			} )
 		} )
+		//edit specific story
 		.put( function ( req, res ) {
 			Story.findById( req.params.story_id, function ( err, story ) {
 				if ( err ) 
 					res.send( err )
 				story.name = req.body.name;
-				//save Story
+				//save edited story
 				story.save( function ( err ) {
 					if ( err ) 
 						res.send( err );
@@ -46,6 +51,7 @@ module.exports = function ( router ) {
 				} )
 			} )
 		} )
+		//delete specific story
 		.delete( function ( req, res ) {
 			Story.remove( {
 				_id: req.params.story_id
@@ -65,40 +71,43 @@ module.exports = function ( router ) {
 				_id: req.params.story_id
 			}, function ( err, story ) {
 				const scene = new Scene();
+				//assiging story reference to scene
 				scene.story = story;
-				scene.name = req
-					.body
-					.name
-					story
+				//assigning scene name
+				scene.name = req.body.name
+				//adding scene to scenes within story
+				story
 					.scenes
 					.push( scene );
+				//saving changes to story
 				story.save( function ( err ) {
 					if ( err ) 
 						res.send( err );
 					}
 				)
+				//saving scene
 				scene.save( function ( err ) {
 					res.json( { message: "scene added" } );
 				} )
 			} )
 		} )
-		//see a list of scenes to the specific story
+		//see a list of scenes for the specific story
 		.get( function ( req, res ) {
 			Story
 				.findById( req.params.story_id, function ( err, story ) {
 					if ( err ) 
 						res.send( err )
-						// res.json(story.scenes)
-					
-					//get more information about scenes in the story
 				} )
+				//see scene name in the story
 				.populate( 'scenes', 'name' )
 				.exec( function ( err, story ) {
 					res.json( story.scenes )
 				} )
 		} )
+	//routes to specific scene within specific story
 	router
 		.route( '/stories/:story_id/scenes/:scene_id' )
+		//get specific scene
 		.get( function ( req, res ) {
 			Scene.findById( req.params.scene_id, function ( err, scene ) {
 				if ( err ) 
@@ -106,6 +115,7 @@ module.exports = function ( router ) {
 				res.json( scene )
 			} )
 		} )
+		//delete specific scene
 		.delete( function ( req, res ) {
 			//delete one scene by id
 			Scene.deleteOne( {
@@ -115,6 +125,7 @@ module.exports = function ( router ) {
 					res.send( err );
 				}
 			);
+			//finding that scene within story and deleting reference
 			Story.findById( req.params.story_id, function ( err, story ) {
 				if ( err ) 
 					res.send( err )
@@ -125,17 +136,19 @@ module.exports = function ( router ) {
 							.splice( i, 1 )
 					}
 				}
+				//saving story with above changes
 				story.save( function ( err ) {
 					res.json( { message: "scene deleted" } );
 				} )
 			} )
 		} )
+		//edit specific scene within story
 		.put( function ( req, res ) {
 			Scene.findById( req.params.scene_id, function ( err, scene ) {
 				if ( err ) 
 					res.send( err )
 				scene.name = req.body.name;
-				//save Story
+				//save scene with changes
 				scene.save( function ( err ) {
 					if ( err ) 
 						res.send( err );
