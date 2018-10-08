@@ -78,7 +78,7 @@ module.exports = function ( router ) {
 					}
 				)
 				scene.save( function ( err ) {
-					res.json( { message: "scene updated" } );
+					res.json( { message: "scene added" } );
 				} )
 			} )
 		} )

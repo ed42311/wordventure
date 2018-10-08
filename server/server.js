@@ -4,8 +4,6 @@ const app = express();
 const bodyParser = require( 'body-parser' );
 const mongoose = require( 'mongoose' );
 const path = require( 'path' );
-const Scene = require( './models/story' ).story;
-const Option = require( './models/story' ).story;
 
 mongoose.connect( 'mongodb://localhost:27017/story', { useNewUrlParser: true } );
 
@@ -37,6 +35,8 @@ const storyRoutes = require( './routes/stories.js' )
 storyRoutes( router )
 const sceneRoutes = require( './routes/scenes.js' )
 sceneRoutes( router )
+// const optionRoutes = require( './routes/options.js' )
+// optionRoutes( router )
 //end of middleware
 app.use( '/api', router )
 //listen to port
