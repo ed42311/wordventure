@@ -47,12 +47,17 @@ module.exports = function ( router ) {
 		.route( '/scenes/:scene_id/options' )
 		//get a list of all options within a scene
 		.get( function ( req, res ) {
-			Option.find( function ( err, options ) {
-				if ( err ) 
-					res.send( err )
-					//show all options
-				res.json( options )
-			} )
+			Scene
+				.findById( req.params.scene_id, function ( err, scene ) {
+					if ( err ) 
+						res.send( err )
+
+						//get more information about members in the band
+					} )
+				.populate( 'options', 'name' )
+				.exec( function ( err, scene ) {
+					res.send( scene.options )
+				} )
 		} )
 		//add new option to the scene
 		.post( function ( req, res ) {
