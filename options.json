@@ -1,0 +1,136 @@
+{
+	"_id": {
+		"$oid": "5bbe2cbcbd214407efdb7fb8"
+	},
+	"scene": {
+		"$oid": "5bbe2c89bd214407efdb7fb6"
+	},
+	"name": "Escape the house",
+	"__v": 0
+} {
+	"_id": {
+		"$oid": "5bbe2ccbbd214407efdb7fba"
+	},
+	"scene": {
+		"$oid": "5bbe2c89bd214407efdb7fb6"
+	},
+	"name": "Hide under the couch",
+	"__v": 0
+} {
+	"_id": {
+		"$oid": "5bbe2cdebd214407efdb7fbb"
+	},
+	"scene": {
+		"$oid": "5bbe2c89bd214407efdb7fb6"
+	},
+	"name": "Open the door and confront him",
+	"__v": 0
+} {
+	"_id": {
+		"$oid": "5bbe2d90bd214407efdb7fbe"
+	},
+	"scene": {
+		"$oid": "5bbe2d38bd214407efdb7fbd"
+	},
+	"name": "Start the fire",
+	"__v": 0
+} {
+	"_id": {
+		"$oid": "5bbe2da2bd214407efdb7fc0"
+	},
+	"scene": {
+		"$oid": "5bbe2d38bd214407efdb7fbd"
+	},
+	"name": "Leave and never come back.start a new life.",
+	"__v": 0
+} {
+	"_id": {
+		"$oid": "5bbe2dacbd214407efdb7fc1"
+	},
+	"scene": {
+		"$oid": "5bbe2d38bd214407efdb7fbd"
+	},
+	"name": "Call for help",
+	"__v": 0
+} {
+	"_id": {
+		"$oid": "5bbe2e6cbd214407efdb7fc3"
+	},
+	"scene": {
+		"$oid": "5bbe2e43bd214407efdb7fc2"
+	},
+	"name": "Leave the house",
+	"__v": 0
+} {
+	"_id": {
+		"$oid": "5bbe2e73bd214407efdb7fc5"
+	},
+	"scene": {
+		"$oid": "5bbe2e43bd214407efdb7fc2"
+	},
+	"name": "Attack him",
+	"__v": 0
+} {
+	"_id": {
+		"$oid": "5bbe2e7bbd214407efdb7fc6"
+	},
+	"scene": {
+		"$oid": "5bbe2e43bd214407efdb7fc2"
+	},
+	"name": "Stay hidden",
+	"__v": 0
+} {
+	"_id": {
+		"$oid": "5bbe327dadcd5d148ba493a0"
+	},
+	"scene": {
+		"$oid": "5bbe2edfbd214407efdb7fca"
+	},
+	"name": "Grab the antique rifle off of your wall.",
+	"__v": 0
+} {
+	"_id": {
+		"$oid": "5bbe328eadcd5d148ba493a2"
+	},
+	"scene": {
+		"$oid": "5bbe2edfbd214407efdb7fca"
+	},
+	"name": "Pick up your sword in your umbrella bucket.",
+	"__v": 0
+} {
+	"_id": {
+		"$oid": "5bbe32b8adcd5d148ba493a3"
+	},
+	"scene": {
+		"$oid": "5bbe2edfbd214407efdb7fca"
+	},
+	"name": "You decided to attack him with bare hands",
+	"__v": 0
+} {
+	"_id": {
+		"$oid": "5bbe3319adcd5d148ba493a4"
+	},
+	"scene": {
+		"$oid": "5bbe2f0ebd214407efdb7fce"
+	},
+	"name": "Call for help!",
+	"__v": 0
+} {
+	"_id": {
+		"$oid": "5bbe3325adcd5d148ba493a6"
+	},
+	"scene": {
+		"$oid": "5bbe2f0ebd214407efdb7fce"
+	},
+	"name": "Leave the house.",
+	"__v": 0
+} {
+	"_id": {
+		"$oid": "5bbe3340adcd5d148ba493a7"
+	},
+	"scene": {
+		"$oid": "5bbe2f0ebd214407efdb7fce"
+	},
+	"name": "Stay hidden until night, with hopes to kill him in his sleep.",
+	"__v": 0
+}
