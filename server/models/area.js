@@ -3,21 +3,21 @@ const Schema = mongoose.Schema;
 
 const AreaSchema = new Schema( {
   title: String,
-	firstArea: Boolean,
+	isEntrance: Boolean,
+  isExit: Boolean,
   body: String,
   createdAt: Date,
   modifiedAt: Date,
-	areas: [
+	actions: [
 		{
 			type: Schema.Types.ObjectId,
-			ref: 'Room',
+			ref: 'Action',
 		}
 	],
 } )
 
 AreaSchema.pre('save', function(next) {
   const area = this;
-  console.log("pre save plant")
 
   if (this.isNew) {
     area.createdAt = new Date();

@@ -11,7 +11,7 @@ const authRouter = require('./routes/auth');
 const apiRouter = require('./routes/api');
 const UserRouter = require('./routes/user');
 const WorldRouter = require('./routes/world');
-// const AreaRouter = require('./routes/area');
+const AreaRouter = require('./routes/area');
 const authCheckMiddleware = require('./middleware/auth-check');
 
 // initialize option constants
@@ -65,7 +65,7 @@ if (cluster.isMaster) {
   app.use('/api', apiRouter);
   app.use('/api', UserRouter);
   app.use('/api', WorldRouter);
-	// app.use('/api', AreaRouter);
+	app.use('/api', AreaRouter);
 
   app.get('*', (request, response) => {
     response.sendFile(path.resolve(__dirname, '../react-ui/build', 'index.html'));

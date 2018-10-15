@@ -16,13 +16,13 @@ const WorldSchema = new Schema( {
 
 WorldSchema.pre('save', function(next) {
   const world = this;
-  console.log("pre save world")
 
   if (this.isNew) {
     world.createdAt = new Date();
   } else {
     world.modifiedAt = new Date();
   }
+
   return next();
 });
 

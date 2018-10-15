@@ -10,6 +10,7 @@ module.exports.connect = (uri, opts) => {
   });
 
   require('./world');
+  require('./action');
   require('./area');
   require('./user');
 };

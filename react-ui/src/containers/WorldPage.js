@@ -91,9 +91,9 @@ export default class WorldPage extends Component {
   render() {
     return (
       <div>
-        <p>Worlds</p>
-        {this.state.worlds.map(world =>
-          <div>
+        <p>World</p>
+        {this.state.worlds.map((world, index) =>
+          <div key={world.title + index}>
             <h4>{world.title}</h4>
             <p>{world.body}</p>
           </div>

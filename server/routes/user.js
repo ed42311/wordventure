@@ -14,27 +14,24 @@ router.route('/users')
       res.json(users);
     });
   })
-  // .post((req, res) => {
-  //   const { body } = req
-  //   console.log("******** got to post *******")
-  //   const user = new User();
-  //   console.log(body)
-  //   for (const key in body) {
-  //     if (body.hasOwnProperty(key)) {
-  //       user[key] = body[key];
-  //     }
-  //   }
-  //   console.log("before save")
-  //   user.save((err, user) => {
-  //     console.log("inside save")
-  //     if (err)
-  //       res.send(err);
-  //     res.json({
-  //       message: "User Saved",
-  //       user
-  //     });
-  //   });
-  // });
+
+  .post((req, res) => {
+    const { body } = req
+    const user = new User();
+    for (const key in body) {
+      if (body.hasOwnProperty(key)) {
+        user[key] = body[key];
+      }
+    }
+    user.save((err, user) => {
+      if (err)
+        res.send(err);
+      res.json({
+        message: "User Saved",
+        user
+      });
+    });
+  });
 
 router.route('/user/find/:userid')
   .get((req, res) => {
@@ -69,7 +66,7 @@ router.route('/user/update/:userid')
       });
     });
   });
-  
+
 router.route('/user/delete/:userid')
   .delete((req, res) => {
     User.remove({
