@@ -1,15 +1,9 @@
-const Story = require( '../models/story' ).story
-const Scene = require( '../models/story' ).scene
-const Option = require( '../models/story' ).option
 
-module.exports = function ( router ) {
-	router
-		.route( '/scenes' )
-		//get a list of all scenes of all stories
+router.route( '/scenes' )
 		.get( function ( req, res ) {
 			//find all scenes
 			Scene.find( function ( err, scenes ) {
-				if ( err ) 
+				if ( err )
 					res.send( err )
 					//show all scenes
 				res.json( scenes )
@@ -21,7 +15,7 @@ module.exports = function ( router ) {
 		//get specific scene
 		.get( function ( req, res ) {
 			Scene.findById( req.params.scene_id, function ( err, scene ) {
-				if ( err ) 
+				if ( err )
 					res.send( err )
 					//show specific scene
 				res.json( scene )
@@ -30,13 +24,13 @@ module.exports = function ( router ) {
 		//edit specific scene
 		.put( function ( req, res ) {
 			Scene.findById( req.params.scene_id, function ( err, scene ) {
-				if ( err ) 
+				if ( err )
 					res.send( err )
 					//assign name to the scene
 				scene.name = req.body.name
 				//save scene information
 				scene.save( function ( err ) {
-					if ( err ) 
+					if ( err )
 						res.send( err )
 					res.json( { message: "scene updated" } )
 				} )
@@ -49,7 +43,7 @@ module.exports = function ( router ) {
 		.get( function ( req, res ) {
 			Scene
 				.findById( req.params.scene_id, function ( err, scene ) {
-					if ( err ) 
+					if ( err )
 						res.send( err )
 
 						//get more information about members in the band
@@ -75,7 +69,7 @@ module.exports = function ( router ) {
 					.push( option );
 				//save edited scene
 				scene.save( function ( err ) {
-					if ( err ) 
+					if ( err )
 						res.send( err );
 					}
 				)
@@ -91,7 +85,7 @@ module.exports = function ( router ) {
 		//get specific option
 		.get( function ( req, res ) {
 			Option.findById( req.params.option_id, function ( err, option ) {
-				if ( err ) 
+				if ( err )
 					res.send( err )
 					//show option info
 				res.json( option )
@@ -102,13 +96,13 @@ module.exports = function ( router ) {
 			Option.deleteOne( {
 				_id: req.params.option_id
 			}, function ( err, option ) {
-				if ( err ) 
+				if ( err )
 					res.send( err );
 				}
 			);
 			//delete option reference within scene
 			Scene.findById( req.params.scene_id, function ( err, scene ) {
-				if ( err ) 
+				if ( err )
 					res.send( err )
 				for ( var i = 0; i < scene.options.length; i++ ) {
 					if ( scene.options[ i ] == req.params.option_id ) {
@@ -126,16 +120,15 @@ module.exports = function ( router ) {
 		//edit option
 		.put( function ( req, res ) {
 			Option.findById( req.params.option_id, function ( err, option ) {
-				if ( err ) 
+				if ( err )
 					res.send( err )
 					//assign new name to the option
 				option.name = req.body.name;
 				//save option
 				option.save( function ( err ) {
-					if ( err ) 
+					if ( err )
 						res.send( err );
 					res.json( { message: "option updated" } );
 				} )
 			} )
 		} )
-}

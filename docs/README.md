@@ -1,5 +1,14 @@
 # WordVenture
 
+A text based game along the lines of adventures of Zork
+
+******
+
+## TOC
+- [Static API DOC](./staticApi.md)
+
+- A text based adventure build with a MongoDB backend and a react frontend, go figure
+
 ## Development Information
 
 - Fork this repo
@@ -9,7 +18,7 @@
 ### Prior to running
 
 - `npm install` inside public
-- `npm install` inside server 
+- `npm install` inside server
 
 ### Running in local environment
 
